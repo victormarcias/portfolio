@@ -1,13 +1,28 @@
-# landing-page
+# cv-landing-page
 
-Personal landing page: photo + links (LinkedIn, GitHub, CV). Pure static HTML/CSS — no build step, no server needed.
+Landing page personal (victormarcias.online): foto + links (LinkedIn, GitHub, CV). HTML/CSS estático, sin build ni dependencias — solo lo necesario para levantarlo local y subirlo a prod.
 
-## Setup
+## Estructura
 
-1. Add your photo as `assets/photo.jpg` (falls back to initials "VM" if missing).
-2. Add your CV as `assets/cv.pdf`.
-3. Open `index.html` in a browser to preview.
+- `index.html` — la página
+- `styles.css` — estilos
+- `assets/photo.png` — foto de perfil (fallback a iniciales si falta)
+- `assets/cv.pdf` — CV descargable
 
-## Deploy
+## Correr local
 
-Any static host works: GitHub Pages, Netlify, Vercel, Cloud Storage + Firebase Hosting, etc. Just upload `index.html` and `assets/`.
+```bash
+./run-local.sh
+```
+
+Levanta un server real en `http://localhost:8080` (prueba `python3` → `php` → `ruby`, el primero que encuentre — así se comporta como prod, no como abrir el archivo directo).
+
+Para cortarlo:
+
+```bash
+./stop.sh
+```
+
+## Subir a producción (victormarcias.online)
+
+Pendiente: `upload-prod.sh` (a definir).

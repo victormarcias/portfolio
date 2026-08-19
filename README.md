@@ -1,4 +1,4 @@
-# cv-landing-page
+# portfolio
 
 Landing page personal (victormarcias.online): foto + links (LinkedIn, GitHub, CV). HTML/CSS estático, sin build ni dependencias — solo lo necesario para levantarlo local y subirlo a prod.
 
@@ -25,4 +25,8 @@ Para cortarlo:
 
 ## Subir a producción (victormarcias.online)
 
-Pendiente: `upload-prod.sh` (a definir).
+```bash
+./upload-2-prod.sh
+```
+
+Deploya a Firebase Hosting, proyecto `your-firebase-project-id`. Ese mismo proyecto también rutea `/hero-blog/**` al Cloud Run de `fastapi-blog` (repo aparte, sin relación de código con este) — así conviven bajo un solo dominio sin subdominios y sin Load Balancer.

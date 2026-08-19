@@ -10,6 +10,22 @@
       "stop.sh",
       "upload-2-prod.sh",
       ".claude/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/hero-blog",
+        "run": {
+          "serviceId": "fastapi-service",
+          "region": "us-east4"
+        }
+      },
+      {
+        "source": "/hero-blog/**",
+        "run": {
+          "serviceId": "fastapi-service",
+          "region": "us-east4"
+        }
+      }
     ]
   }
 }

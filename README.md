@@ -15,7 +15,7 @@ Landing page personal (victormarcias.online): foto + links (LinkedIn, GitHub, CV
 ./run-local.sh
 ```
 
-Levanta un server real en `http://localhost:8080` (prueba `python3` → `php` → `ruby`, el primero que encuentre — así se comporta como prod, no como abrir el archivo directo).
+Levanta un server real en `http://localhost:8001` (prueba `python3` → `php` → `ruby`, el primero que encuentre — así se comporta como prod, no como abrir el archivo directo).
 
 Para cortarlo:
 

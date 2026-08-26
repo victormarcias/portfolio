@@ -1,5 +1,5 @@
 #!/bin/sh
-PORT=8080
+PORT=8001
 PIDS=$(lsof -ti "tcp:$PORT")
 
 if [ -z "$PIDS" ]; then

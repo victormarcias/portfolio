@@ -9,9 +9,14 @@
       "run-local.sh",
       "stop.sh",
       "upload-2-prod.sh",
-      ".claude/**"
+      ".claude/**",
+      "cv/index.html"
     ],
     "rewrites": [
+      {
+        "source": "/cv",
+        "destination": "/cv/cv.pdf"
+      },
       {
         "source": "/hero-blog",
         "run": {

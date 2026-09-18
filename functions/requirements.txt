@@ -1,0 +1,4 @@
+firebase-functions
+requests
+google-cloud-storage
+python-dotenv

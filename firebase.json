@@ -1,4 +1,11 @@
 {
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "runtime": "python312"
+    }
+  ],
   "hosting": {
     "public": ".",
     "ignore": [
@@ -10,12 +17,16 @@
       "stop.sh",
       "upload-2-prod.sh",
       ".claude/**",
-      "cv/index.html"
+      "functions/**"
     ],
     "rewrites": [
       {
         "source": "/cv",
-        "destination": "/cv/cv.pdf"
+        "function": "serve_cv"
+      },
+      {
+        "source": "/cv/**",
+        "function": "serve_cv"
       },
       {
         "source": "/hero-blog",
@@ -32,5 +43,8 @@
         }
       }
     ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

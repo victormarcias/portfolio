@@ -2,3 +2,7 @@
 *.log
 .claude
 .firebase
+functions/venv
+functions/__pycache__
+functions/.env
+.cv-secret

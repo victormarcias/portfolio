@@ -1,13 +1,14 @@
 # portfolio
 
-Landing page personal (victormarcias.online): foto + links (LinkedIn, GitHub, CV). HTML/CSS estático, sin build ni dependencias — solo lo necesario para levantarlo local y subirlo a prod.
+Landing page personal (victormarcias.online): foto + links (LinkedIn, GitHub, CV). El sitio en sí es HTML/CSS estático, sin build — el CV es la excepción, se sirve dinámico vía Cloud Functions (ver más abajo).
 
 ## Estructura
 
 - `index.html` — la página
 - `styles.css` — estilos
+- `cv-not-found.html` — fallback cuando el CV no está disponible en Storage (ver `/cv` abajo)
 - `assets/photo.png` — foto de perfil (fallback a iniciales si falta)
-- `assets/cv.pdf` — CV descargable
+- `functions/` — Cloud Functions (`serve_cv`, `update_cv`) que arman `/cv`
 
 ## Correr local
 
@@ -30,3 +31,18 @@ Para cortarlo:
 ```
 
 Deploya a Firebase Hosting, proyecto `your-firebase-project-id`. Ese mismo proyecto también rutea `/hero-blog/**` al Cloud Run de `fastapi-blog` (repo aparte, sin relación de código con este) — así conviven bajo un solo dominio sin subdominios y sin Load Balancer.
+
+## Update CV
+
+El CV vive como Google Doc (público por link, el ID está hardcodeado en `functions/main.py`) — nunca se edita un PDF a mano. El flujo:
+
+```
+Doc (editás acá) --update_cv (POST + secret)--> Cloud Storage (cv/cv.pdf) --serve_cv (GET)--> /cv
+```
+
+- **`functions/serve_cv`** — público, sirve el PDF que esté en Storage ahora mismo. Si todavía no se generó ninguno, redirige a `cv-not-found.html`.
+- **`functions/update_cv`** — protegido con un secret, re-exporta el Doc a PDF y lo sube a Storage. Se llama a mano cada vez que termines de editar el Doc:
+
+```bash
+curl -X POST "https://us-central1-your-firebase-project-id.cloudfunctions.net/update_cv?secret=TU_SECRET"
+```

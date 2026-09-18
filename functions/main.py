@@ -15,8 +15,11 @@ from firebase_functions import https_fn
 from google.cloud import storage
 
 DOC_ID = "your-google-doc-id"
-BUCKET_NAME = os.environ.get("CV_BUCKET_NAME")  # se completa después de `firebase init storage`
+BUCKET_NAME = os.environ.get(
+    "CV_BUCKET_NAME"
+)  # se completa después de `firebase init storage`
 BLOB_PATH = "cv/cv.pdf"
+MAX_CV_BYTES = 512 * 1024  # 512 KB — un CV nunca debería pesar más que esto
 
 _storage_client = None
 
@@ -76,6 +79,13 @@ def update_cv(req: https_fn.Request) -> https_fn.Response:
         return https_fn.Response(
             f"El export del Doc falló (status {resp.status_code}) — ¿sigue público por link?",
             status=502,
+        )
+
+    if len(resp.content) > MAX_CV_BYTES:
+        return https_fn.Response(
+            f"El PDF exportado pesa {len(resp.content) / 1024:.0f}KB, "
+            f"supera el límite de {MAX_CV_BYTES // 1024}KB. No se subió nada.",
+            status=413,
         )
 
     bucket = _get_storage_client().bucket(BUCKET_NAME)

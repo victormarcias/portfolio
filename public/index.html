@@ -105,57 +105,7 @@
 
   <footer>&copy; <span id="year"></span> Victor Hugo Marcias</footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function renderMarqueeContent(item) {
-      if (!item.logo) {
-        const span = document.createElement('span');
-        span.className = 'marquee-item';
-        span.textContent = item.name;
-        return span;
-      }
-      const img = document.createElement('img');
-      img.className = 'marquee-logo';
-      img.src = item.logo;
-      img.alt = item.name;
-      img.loading = 'lazy';
-      img.onerror = () => {
-        const span = document.createElement('span');
-        span.className = 'marquee-item';
-        span.textContent = item.name;
-        img.replaceWith(span);
-      };
-      return img;
-    }
-
-    function renderMarqueeItem(item) {
-      const content = renderMarqueeContent(item);
-      if (!item.url) return content;
-      const link = document.createElement('a');
-      link.className = 'marquee-link';
-      link.href = item.url;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.appendChild(content);
-      return link;
-    }
-
-    async function loadMarquee(url, trackId) {
-      const track = document.getElementById(trackId);
-      try {
-        const res = await fetch(url);
-        const items = await res.json();
-        items.sort((a, b) => (b.year || 0) - (a.year || 0));
-        [...items, ...items].forEach(item => track.appendChild(renderMarqueeItem(item)));
-      } catch (err) {
-        track.closest('.marquee').style.display = 'none';
-      }
-    }
-
-    loadMarquee('clients/agencies.json', 'agencies-track');
-    loadMarquee('clients/clients.json', 'clients-track');
-  </script>
+  <script src="marquee.js"></script>
 </body>
 
 </html>

@@ -92,7 +92,7 @@ h1 {
 }
 
 .tagline {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-soft);
   margin: 0 0 40px;
@@ -276,10 +276,15 @@ h1 {
   gap: 56px;
   width: max-content;
   animation: marquee-scroll 18s linear infinite;
+  animation-play-state: paused;
 }
 
 .marquee-track--right {
   animation-direction: reverse;
+}
+
+.marquee-track.is-ready {
+  animation-play-state: running;
 }
 
 .marquee:hover .marquee-track {
@@ -292,7 +297,7 @@ h1 {
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(var(--marquee-shift, -50%));
   }
 }
 

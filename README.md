@@ -4,11 +4,15 @@ Landing page personal (victormarcias.online): foto + links (LinkedIn, GitHub, CV
 
 ## Estructura
 
-- `index.html` — la página
-- `styles.css` — estilos
-- `cv-not-found.html` — fallback cuando el CV no está disponible en Storage (ver `/cv` abajo)
-- `assets/photo.png` — foto de perfil (fallback a iniciales si falta)
-- `functions/` — Cloud Functions (`serve_cv`, `update_cv`) que arman `/cv`
+Todo lo que se sirve públicamente vive en `public/` (coincide con el `public` de Firebase Hosting):
+
+- `public/index.html` — la página
+- `public/styles.css` — estilos
+- `public/marquee.js` — arma las dos marquesinas (agencias/clientes) desde `public/clients/*.json`
+- `public/cv-not-found.html` — fallback cuando el CV no está disponible en Storage (ver `/cv` abajo)
+- `public/assets/photo.png` — foto de perfil (fallback a iniciales si falta)
+- `public/clients/` — `agencies.json` / `clients.json` + `images/` con los logos de la marquesina
+- `functions/` — Cloud Functions (`serve_cv`, `update_cv`) que arman `/cv` (fuera de `public/`, no es contenido estático)
 
 ## Correr local
 

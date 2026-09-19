@@ -7,17 +7,9 @@
     }
   ],
   "hosting": {
-    "public": ".",
+    "public": "public",
     "ignore": [
-      "firebase.json",
-      "**/.*",
-      ".git/**",
-      ".firebase/**",
-      "run-local.sh",
-      "stop.sh",
-      "upload-2-prod.sh",
-      ".claude/**",
-      "functions/**"
+      "**/.*"
     ],
     "rewrites": [
       {

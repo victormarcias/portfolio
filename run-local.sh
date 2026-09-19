@@ -1,5 +1,5 @@
 #!/bin/sh
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/public"
 PORT=8001
 
 if command -v python3 >/dev/null 2>&1; then

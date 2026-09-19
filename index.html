@@ -23,12 +23,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <main class="card">
+  <section class="hero">
     <div class="avatar-wrap">
       <img class="avatar" src="assets/photo.png" alt="Victor Hugo Marcias"
         onerror="this.replaceWith(Object.assign(document.createElement('div'), {className: 'avatar-fallback', textContent: 'VHM'}))">
@@ -37,67 +37,124 @@
     <h1>Victor Hugo Marcias</h1>
     <p class="tagline">Software Engineer</p>
 
-    <nav class="links">
+    <nav class="links" aria-label="Contact links">
       <a class="link linkedin" href="https://www.linkedin.com/in/victor-marcias" target="_blank"
         rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
-        </svg>
-        <span>LinkedIn</span>
-        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M7 17 17 7M9 7h8v8" />
-        </svg>
+        <span class="link-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
+          </svg>
+        </span>
+        <span class="link-text">LinkedIn</span>
       </a>
 
       <a class="link cv" href="/cv" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5zM8 13h2.4l1.1 3.6L12.6 13H15l-2.2 6.5h-1.6L10 15.6l-1.2 3.9H7.2L5 13h2.1l1.1 3.6L9.3 13H8z" />
-        </svg>
-        <span>CV</span>
-        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M7 17 17 7M9 7h8v8" />
-        </svg>
+        <span class="link-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6H6zm7 1.5L18.5 9H14a1 1 0 0 1-1-1V3.5zM8 13h2.4l1.1 3.6L12.6 13H15l-2.2 6.5h-1.6L10 15.6l-1.2 3.9H7.2L5 13h2.1l1.1 3.6L9.3 13H8z" />
+          </svg>
+        </span>
+        <span class="link-text">CV</span>
       </a>
 
       <a class="link github" href="https://github.com/victormarcias" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.05-.01-1.9-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.43.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .28.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" />
-        </svg>
-        <span>GitHub</span>
-        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M7 17 17 7M9 7h8v8" />
-        </svg>
+        <span class="link-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.05-.01-1.9-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.11 2.91.85.09-.67.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.43.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .28.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" />
+          </svg>
+        </span>
+        <span class="link-text">GitHub</span>
       </a>
 
       <a class="link calendly" href="https://calendly.com/victormarcias" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3" y="4" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2" />
-          <path d="M16 2v4M8 2v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-          <rect x="3" y="4" width="18" height="5" rx="2" fill="currentColor" opacity="0.15" />
-          <circle cx="8.5" cy="14" r="1.4" fill="currentColor" />
-          <circle cx="12.5" cy="14" r="1.4" fill="currentColor" />
-          <circle cx="16.5" cy="14" r="1.4" fill="currentColor" />
-          <circle cx="8.5" cy="18" r="1.4" fill="currentColor" />
-        </svg>
-        <span>Book a Meeting</span>
-        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M7 17 17 7M9 7h8v8" />
-        </svg>
+        <span class="link-icon">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2" />
+            <path d="M16 2v4M8 2v4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <rect x="3" y="4" width="18" height="5" rx="2" fill="currentColor" opacity="0.15" />
+            <circle cx="8.5" cy="14" r="1.4" fill="currentColor" />
+            <circle cx="12.5" cy="14" r="1.4" fill="currentColor" />
+            <circle cx="16.5" cy="14" r="1.4" fill="currentColor" />
+            <circle cx="8.5" cy="18" r="1.4" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="link-text">Book a Meeting</span>
       </a>
     </nav>
 
-    <footer>&copy; <span id="year"></span> Victor Hugo Marcias</footer>
-  </main>
+    <a class="scroll-cue" href="#worked-with" aria-label="Scroll down">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" />
+      </svg>
+    </a>
+  </section>
+
+  <section class="marquee-section" id="worked-with">
+    <div class="marquee">
+      <div class="marquee-track marquee-track--left" id="agencies-track"></div>
+    </div>
+
+    <div class="marquee">
+      <div class="marquee-track marquee-track--right" id="clients-track"></div>
+    </div>
+  </section>
+
+  <footer>&copy; <span id="year"></span> Victor Hugo Marcias</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function renderMarqueeContent(item) {
+      if (!item.logo) {
+        const span = document.createElement('span');
+        span.className = 'marquee-item';
+        span.textContent = item.name;
+        return span;
+      }
+      const img = document.createElement('img');
+      img.className = 'marquee-logo';
+      img.src = item.logo;
+      img.alt = item.name;
+      img.loading = 'lazy';
+      img.onerror = () => {
+        const span = document.createElement('span');
+        span.className = 'marquee-item';
+        span.textContent = item.name;
+        img.replaceWith(span);
+      };
+      return img;
+    }
+
+    function renderMarqueeItem(item) {
+      const content = renderMarqueeContent(item);
+      if (!item.url) return content;
+      const link = document.createElement('a');
+      link.className = 'marquee-link';
+      link.href = item.url;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.appendChild(content);
+      return link;
+    }
+
+    async function loadMarquee(url, trackId) {
+      const track = document.getElementById(trackId);
+      try {
+        const res = await fetch(url);
+        const items = await res.json();
+        items.sort((a, b) => (b.year || 0) - (a.year || 0));
+        [...items, ...items].forEach(item => track.appendChild(renderMarqueeItem(item)));
+      } catch (err) {
+        track.closest('.marquee').style.display = 'none';
+      }
+    }
+
+    loadMarquee('clients/agencies.json', 'agencies-track');
+    loadMarquee('clients/clients.json', 'clients-track');
   </script>
 </body>
 

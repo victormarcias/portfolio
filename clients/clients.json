@@ -1,0 +1,5 @@
+[
+  { "name": "Etermax", "logo": "clients/images/etermax.png", "url": "https://etermax.com", "year": null },
+  { "name": "Care.com", "logo": "clients/images/care-com.png", "url": null, "year": null },
+  { "name": "Hilti Group", "logo": "clients/images/hilti-group.png", "url": null, "year": null }
+]

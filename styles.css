@@ -257,8 +257,7 @@ h1 {
 }
 
 .marquee:hover .marquee-logo {
-  opacity: 0.85;
-  filter: grayscale(0.4);
+  opacity: 0.7;
 }
 
 .marquee-link {
@@ -270,12 +269,12 @@ h1 {
 
 .marquee-link:hover .marquee-item {
   color: var(--text);
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .marquee-link:hover .marquee-logo {
   opacity: 1;
-  filter: grayscale(0);
+  filter: grayscale(1) brightness(0.35);
 }
 
 footer {

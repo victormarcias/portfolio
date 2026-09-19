@@ -1,4 +1,8 @@
 [
-  { "name": "Majestyk", "logo": "clients/images/majestyk.png", "url": "https://majestykapps.com/" },
-  { "name": "Foxbox Digital", "logo": "clients/images/foxbox-digital.png", "url": null }
+  { "name": "Band of Coders", "logo": "clients/images/logo-boc.png", "url": "https://www.bandofcoders.com/" },
+  { "name": "DYNAMO Consulting", "logo": "clients/images/logo-dynamo.png", "url": "https://www.linkedin.com/company/dynamo-consulting-ab/home/" },
+  { "name": "Kubikware", "logo": "clients/images/logo-kubikware.png", "url": "https://www.kubikware.com/" },
+  { "name": "Majestyk Apps", "logo": "clients/images/logo-majestyk.png", "url": "https://majestykapps.com/" },
+  { "name": "Utility NYC", "logo": "clients/images/logo-utility.png", "url": "https://utility.agency/" },
+  { "name": "The App Master", "logo": "clients/images/logo-theappmaster.png", "url": "https://www.theappmaster.com/" }
 ]

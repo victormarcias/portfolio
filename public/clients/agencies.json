@@ -18,6 +18,12 @@
     "year": 2021
   },
   {
+    "name": "Globant",
+    "logo": "clients/images/logo-globant.png",
+    "url": "https://www.globant.com/",
+    "year": 2020
+  },
+  {
     "name": "Kubikware",
     "logo": "clients/images/logo-kubikware.png",
     "url": "https://www.kubikware.com/",

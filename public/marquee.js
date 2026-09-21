@@ -1,5 +1,9 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+document.querySelector('.avatar').addEventListener('error', function () {
+  this.replaceWith(Object.assign(document.createElement('div'), { className: 'avatar-fallback', textContent: 'VHM' }));
+});
+
 function renderMarqueeContent(item, readyPromises) {
   if (!item.logo) {
     const span = document.createElement('span');

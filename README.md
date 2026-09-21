@@ -33,7 +33,7 @@ Para cortarlo:
 ## Subir a producción (victormarcias.online)
 
 ```bash
-./upload-2-prod.sh
+./deploy-prod.sh
 ```
 
 Deploya a Firebase Hosting, proyecto `your-firebase-project-id`. Ese mismo proyecto también rutea `/hero-blog/**` al Cloud Run de `fastapi-blog` y `/rekap/**` a la Cloud Function `serve_rekap` de [rekap-docs](https://github.com/victormarcias/rekap-docs) (ambos repos aparte, sin relación de código con este) — así conviven bajo un solo dominio sin subdominios y sin Load Balancer.

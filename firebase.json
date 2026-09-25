@@ -46,14 +46,14 @@
         }
       },
       {
-        "source": "/rekap",
+        "source": "/rekap-docs",
         "function": {
           "functionId": "serve_rekap",
           "region": "us-east4"
         }
       },
       {
-        "source": "/rekap/**",
+        "source": "/rekap-docs/**",
         "function": {
           "functionId": "serve_rekap",
           "region": "us-east4"

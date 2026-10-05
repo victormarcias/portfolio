@@ -2,6 +2,10 @@
 set -euo pipefail
 
 cd "$(dirname "$0")"
+. ./lib.sh
+load_env
+
+: "${FIREBASE_PROJECT:?Definí FIREBASE_PROJECT en .env (ver .env.example)}"
 
 echo "Verificando estado del repo..."
 if [ -n "$(git status --porcelain)" ]; then
@@ -9,9 +13,15 @@ if [ -n "$(git status --porcelain)" ]; then
   exit 1
 fi
 
-echo "Deployando a Firebase Hosting (your-firebase-project-id)..."
-firebase deploy --only hosting
+# Solo las functions del CV (no `--only functions` a secas): serve_rekap se
+# deploya desde otro repo (rekap-docs) y no debe tocarse desde acá.
+echo "Deployando Hosting + functions del CV..."
+firebase deploy --project "$FIREBASE_PROJECT" \
+  --only hosting,functions:serve_cv,functions:update_cv
+
+echo ""
+./update-cv.sh
 
 echo ""
 echo "Listo. Landing en producción:"
-echo "  https://your-firebase-project-id.web.app"
+echo "  https://${FIREBASE_PROJECT}.web.app"

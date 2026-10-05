@@ -14,7 +14,7 @@ import requests
 from firebase_functions import https_fn
 from google.cloud import storage
 
-DOC_ID = "your-google-doc-id"
+DOC_ID = os.environ.get("CV_DOC_ID")  # functions/.env (gitignored), ver .env.example
 BUCKET_NAME = os.environ.get(
     "CV_BUCKET_NAME"
 )  # se completa después de `firebase init storage`
@@ -71,6 +71,12 @@ def update_cv(req: https_fn.Request) -> https_fn.Response:
     secret = req.args.get("secret", "")
     if not secret or secret != os.environ.get("CV_UPDATE_SECRET"):
         return https_fn.Response("Unauthorized", status=401)
+
+    if not DOC_ID:
+        return https_fn.Response(
+            "Falta CV_DOC_ID: definilo en functions/.env y re-deployá las functions.",
+            status=500,
+        )
 
     export_url = f"https://docs.google.com/document/d/{DOC_ID}/export?format=pdf"
     resp = requests.get(export_url, timeout=30)

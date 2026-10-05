@@ -36,19 +36,25 @@ Para cortarlo:
 ./deploy-prod.sh
 ```
 
-Deploya a Firebase Hosting, proyecto `your-firebase-project-id`. Ese mismo proyecto también rutea `/hero-blog/**` al Cloud Run de `fastapi-blog` y `/rekap/**` a la Cloud Function `serve_rekap` de [rekap-docs](https://github.com/victormarcias/rekap-docs) (ambos repos aparte, sin relación de código con este) — así conviven bajo un solo dominio sin subdominios y sin Load Balancer.
+Deploya a Firebase Hosting y las functions del CV (`serve_cv`, `update_cv`), proyecto definido en `FIREBASE_PROJECT` (`.env` en la raíz, gitignoreado — plantilla en `.env.example`), y al final corre `./update-cv.sh` para que `/cv` sirva la última versión del Google Doc (requiere el repo sin cambios sin commitear). Ese mismo proyecto también rutea `/hero-blog/**` al Cloud Run de `fastapi-blog` y `/rekap/**` a la Cloud Function `serve_rekap` de [rekap-docs](https://github.com/victormarcias/rekap-docs) (ambos repos aparte, sin relación de código con este) — así conviven bajo un solo dominio sin subdominios y sin Load Balancer.
 
 ## Update CV
 
-El CV vive como Google Doc (público por link, el ID está hardcodeado en `functions/main.py`) — nunca se edita un PDF a mano. El flujo:
+El CV vive como Google Doc (público por link; su ID está en `functions/.env` como `CV_DOC_ID`, gitignoreado — la plantilla es `functions/.env.example`, y hay que re-deployar las functions si cambia) — nunca se edita un PDF a mano. El flujo:
 
 ```
 Doc (editás acá) --update_cv (POST + secret)--> Cloud Storage (cv/cv.pdf) --serve_cv (GET)--> /cv
 ```
 
 - **`functions/serve_cv`** — público, sirve el PDF que esté en Storage ahora mismo. Si todavía no se generó ninguno, redirige a `cv-not-found.html`.
-- **`functions/update_cv`** — protegido con un secret, re-exporta el Doc a PDF y lo sube a Storage. Se llama a mano cada vez que termines de editar el Doc:
+- **`functions/update_cv`** — protegido con un secret, re-exporta el Doc a PDF y lo sube a Storage. Se llama a mano cada vez que termines de editar el Doc, con el script (lee el secret de `.cv-secret`, gitignoreado):
 
 ```bash
-curl -X POST "https://us-central1-your-firebase-project-id.cloudfunctions.net/update_cv?secret=TU_SECRET"
+./update-cv.sh
+```
+
+Es equivalente a este curl:
+
+```bash
+curl -X POST "https://us-central1-<FIREBASE_PROJECT>.cloudfunctions.net/update_cv?secret=TU_SECRET"
 ```

@@ -13,8 +13,21 @@ Todo lo que se sirve públicamente vive en `public/` (coincide con el `public` d
 - `public/assets/photo.png` — foto de perfil (fallback a iniciales si falta)
 - `public/clients/` — `agencies.json` / `clients.json` + `images/` con los logos de la marquesina
 - `functions/` — Cloud Functions (`serve_cv`, `update_cv`) que arman `/cv` (fuera de `public/`, no es contenido estático)
+- `run-local.sh`, `stop.sh`, `deploy-prod.sh`, `update-cv.sh` — scripts (ver abajo); `lib.sh` es un helper que solo carga el `.env`
+- `.env.example`, `functions/.env.example` — plantillas de la configuración local (ver "Configuración")
 
-`/rekap/**` no vive en este repo — se rutea (ver `firebase.json`) a una Cloud Function (`serve_rekap`) deployada desde el repo aparte [rekap-docs](https://github.com/victormarcias/rekap-docs), mismo mecanismo que ya usa `/cv` acá (`serve_cv`), solo que ese código vive en el otro repo.
+## Configuración
+
+Los valores propios del proyecto no están en el repo: viven en archivos gitignoreados que hay que crear la primera vez.
+
+| Archivo | Qué guarda | Plantilla |
+|---|---|---|
+| `.env` | `FIREBASE_PROJECT` (lo leen `deploy-prod.sh` y `update-cv.sh`) | `.env.example` |
+| `functions/.env` | `CV_BUCKET_NAME` y `CV_DOC_ID` (las functions lo leen al deployar) | `functions/.env.example` |
+| `.cv-secret` | el valor de `CV_UPDATE_SECRET`, en una línea (lo usa `update-cv.sh`) | — |
+| `.firebaserc` | proyecto por defecto del CLI de Firebase (`firebase use --add`) | — |
+
+El secret se define una sola vez con `firebase functions:secrets:set CV_UPDATE_SECRET` y se puede volver a leer con `firebase functions:secrets:access CV_UPDATE_SECRET`.
 
 ## Correr local
 
@@ -36,7 +49,7 @@ Para cortarlo:
 ./deploy-prod.sh
 ```
 
-Deploya a Firebase Hosting y las functions del CV (`serve_cv`, `update_cv`), proyecto definido en `FIREBASE_PROJECT` (`.env` en la raíz, gitignoreado — plantilla en `.env.example`), y al final corre `./update-cv.sh` para que `/cv` sirva la última versión del Google Doc (requiere el repo sin cambios sin commitear). Ese mismo proyecto también rutea `/hero-blog/**` al Cloud Run de `fastapi-blog` y `/rekap/**` a la Cloud Function `serve_rekap` de [rekap-docs](https://github.com/victormarcias/rekap-docs) (ambos repos aparte, sin relación de código con este) — así conviven bajo un solo dominio sin subdominios y sin Load Balancer.
+Deploya a Firebase Hosting y las functions del CV (`serve_cv`, `update_cv`), proyecto definido en `FIREBASE_PROJECT` (`.env` en la raíz, gitignoreado — plantilla en `.env.example`), y al final corre `./update-cv.sh` para que `/cv` sirva la última versión del Google Doc (requiere el repo sin cambios sin commitear).
 
 ## Update CV
 

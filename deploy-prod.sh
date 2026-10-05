@@ -13,8 +13,8 @@ if [ -n "$(git status --porcelain)" ]; then
   exit 1
 fi
 
-# Solo las functions del CV (no `--only functions` a secas): serve_rekap se
-# deploya desde otro repo (rekap-docs) y no debe tocarse desde acá.
+# Solo las functions del CV (no `--only functions` a secas): el proyecto tiene
+# otras functions que se deployan desde otros repos y no deben tocarse desde acá.
 echo "Deployando Hosting + functions del CV..."
 firebase deploy --project "$FIREBASE_PROJECT" \
   --only hosting,functions:serve_cv,functions:update_cv

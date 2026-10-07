@@ -45,7 +45,7 @@ async function loadMarquee(url, trackId, copies = 3) {
   try {
     const res = await fetch(url);
     const items = await res.json();
-    items.sort((a, b) => (b.year || 0) - (a.year || 0));
+    items.sort((a, b) => b.sort - a.sort);
     const readyPromises = [];
     let secondCopyIndex = 0;
     for (let c = 0; c < copies; c++) {

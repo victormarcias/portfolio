@@ -3,48 +3,48 @@
     "name": "Band of Coders",
     "logo": "clients/images/logo-boc.png",
     "url": "https://www.bandofcoders.com/",
-    "year": 2010
+    "sort": 10
   },
   {
     "name": "DYNAMO Consulting",
     "logo": "clients/images/logo-dynamo.png",
     "url": "https://www.linkedin.com/company/dynamo-consulting-ab/home/",
-    "year": 2019
+    "sort": 19
   },
   {
     "name": "Foxbox Digital",
     "logo": "clients/images/logo-foxbox.png",
     "url": "https://www.foxbox.com/",
-    "year": 2021
+    "sort": 21
   },
   {
     "name": "Globant",
     "logo": "clients/images/logo-globant.png",
     "url": "https://www.globant.com/",
-    "year": 2020
+    "sort": 20
   },
   {
     "name": "Kubikware",
     "logo": "clients/images/logo-kubikware.png",
     "url": "https://www.kubikware.com/",
-    "year": 2021
+    "sort": 21
   },
   {
     "name": "Majestyk Apps",
     "logo": "clients/images/logo-majestyk.png",
     "url": "https://majestykapps.com/",
-    "year": 2023
+    "sort": 23
   },
   {
     "name": "Utility NYC",
     "logo": "clients/images/logo-utility.png",
     "url": "https://utility.agency/",
-    "year": 2021
+    "sort": 21
   },
   {
     "name": "The App Master",
     "logo": "clients/images/logo-theappmaster.png",
     "url": "https://www.theappmaster.com/",
-    "year": 2022
+    "sort": 22
   }
 ]

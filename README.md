@@ -1,6 +1,6 @@
 # portfolio
 
-Landing page personal (victormarcias.online): foto + links (LinkedIn, GitHub, CV). El sitio en sí es HTML/CSS estático, sin build — el CV es la excepción, se sirve dinámico vía Cloud Functions (ver más abajo).
+Landing page personal (victormarcias.online): foto + links (LinkedIn, GitHub, CV, agendar reunión y contacto por mail). El sitio en sí es HTML/CSS estático, sin build — el CV es la excepción, se sirve dinámico vía Cloud Functions (ver más abajo).
 
 ## Estructura
 

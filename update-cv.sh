@@ -33,3 +33,14 @@ if [ "$code" != "200" ]; then
 fi
 
 echo "Listo: https://victormarcias.online/cv"
+
+# Copia el PDF publicado a career-mode (profile/cv.pdf), que lo adjunta al postularse.
+# Otra ubicación: CAREER_MODE_DIR=/ruta/a/career-mode ./update-cv.sh
+career_mode="${CAREER_MODE_DIR:-../career-mode}"
+if [ ! -d "$career_mode/profile" ]; then
+  echo "No encontré $career_mode/profile: no copié el CV a career-mode." >&2
+  exit 0
+fi
+
+curl -fsSL -H 'Cache-Control: no-cache' -o "$career_mode/profile/cv.pdf" "https://victormarcias.online/cv"
+echo "Copiado a $career_mode/profile/cv.pdf"

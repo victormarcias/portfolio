@@ -1,6 +1,6 @@
 :root {
-  --bg-1: #eef1f5;
-  --bg-2: #dfe6ee;
+  --bg-1: #eef7fd;
+  --bg-2: #cfe6f7;
   --card-bg: #ffffff;
   --text: #1f2937;
   --text-soft: #6b7280;
@@ -327,7 +327,7 @@ h1 {
   width: auto;
   max-width: 180px;
   object-fit: contain;
-  filter: grayscale(1);
+  filter: grayscale(0.30);
   opacity: 0.5;
   transition: opacity 0.18s ease;
 }

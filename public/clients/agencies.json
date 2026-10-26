@@ -24,12 +24,6 @@
     "sort": 20
   },
   {
-    "name": "Kubikware",
-    "logo": "clients/images/logo-kubikware.png",
-    "url": "https://www.kubikware.com/",
-    "sort": 21
-  },
-  {
     "name": "Majestyk Apps",
     "logo": "clients/images/logo-majestyk.png",
     "url": "https://majestykapps.com/",
@@ -40,11 +34,5 @@
     "logo": "clients/images/logo-utility.png",
     "url": "https://utility.agency/",
     "sort": 21
-  },
-  {
-    "name": "The App Master",
-    "logo": "clients/images/logo-theappmaster.png",
-    "url": "https://www.theappmaster.com/",
-    "sort": 22
   }
 ]

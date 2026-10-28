@@ -46,16 +46,16 @@
         }
       },
       {
-        "source": "/rekap-docs",
+        "source": "/dev-docs",
         "function": {
-          "functionId": "serve_rekap",
+          "functionId": "serve_dev_docs",
           "region": "us-east4"
         }
       },
       {
-        "source": "/rekap-docs/**",
+        "source": "/dev-docs/**",
         "function": {
-          "functionId": "serve_rekap",
+          "functionId": "serve_dev_docs",
           "region": "us-east4"
         }
       }

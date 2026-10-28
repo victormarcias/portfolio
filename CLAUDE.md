@@ -14,11 +14,11 @@ Reglas solo de este repo. Las reglas generales de Victor (no commitear ni pushea
 
 ## README
 
-- El README habla **solo del portfolio**. No menciones `rekap-docs`, `hero-blog` ni otros subsitios: se linkean desde otro lado, no desde acá.
+- El README habla **solo del portfolio**. No menciones `dev-docs`, `hero-blog` ni otros subsitios: se linkean desde otro lado, no desde acá.
 
 ## Firebase
 
-- `firebase.json` mantiene los rewrites de `/cv`, `/hero-blog` y `/rekap-docs` (apuntan a servicios que viven en otros repos). No los saques ni los reordenes.
+- `firebase.json` mantiene los rewrites de `/cv`, `/hero-blog` y `/dev-docs` (apuntan a servicios que viven en otros repos). No los saques ni los reordenes.
 - El proyecto tiene otras functions que se deployan desde otros repos. `deploy-prod.sh` deploya solo `hosting`, `functions:serve_cv` y `functions:update_cv`: nunca uses `--only functions` a secas ni `firebase deploy` sin `--only`.
 - `deploy-prod.sh` exige el árbol de git limpio y al final corre `update-cv.sh`.
 - El CV se genera desde un Google Doc: Doc → `update_cv` → Storage → `/cv`. Nunca se edita un PDF a mano.

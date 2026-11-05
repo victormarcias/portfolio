@@ -1,6 +1,6 @@
 # Portfolio — reglas del repo
 
-Reglas solo de este repo. Las reglas generales de Victor (no commitear ni pushear sin su "commit", no verificar UI con el browser pane, etc.) vienen de `~/Documents/GitHub/global/CLAUDE.md` y valen acá también.
+Reglas solo de este repo. Las reglas generales de Victor (no commitear ni pushear sin su "commit", no verificar UI con el browser pane, etc.) vienen de `~/Documents/GitHub/claude-rules/CLAUDE.md` y valen acá también.
 
 ## Idioma
 

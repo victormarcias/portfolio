@@ -1,6 +1,6 @@
 # Portfolio — reglas del repo
 
-Reglas solo de este repo. Las reglas generales de Victor (commitear al terminar un cambio pero nunca pushear sin su "push", no verificar UI con el browser pane, etc.) vienen de `~/Documents/GitHub/claudio/CLAUDE.md` y valen acá también.
+Reglas solo de este repo.
 
 ## Idioma
 
